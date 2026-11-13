@@ -13,40 +13,40 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-admin py-3 sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="painel.php">
-                <i class="fas fa-tools text-warning me-2"></i>ADMINISTRAÇÃO
+    <nav id="nav-painel" class="navbar navbar-expand-lg navbar-dark navbar-admin py-3 sticky-top">
+        <div id="div-nav-container" class="container">
+            <a id="link-brand-painel" class="navbar-brand fw-bold fs-4" href="painel.php">
+                <i id="icone-brand-painel" class="fas fa-tools text-warning me-2"></i>ADMINISTRAÇÃO
             </a>
-            <div class="d-flex align-items-center">
-                <a href="painel.php" class="btn btn-outline-light me-2"><i class="fas fa-home me-1"></i> Painel</a>
-                <a href="usuarios.php" class="btn btn-outline-light me-2"><i class="fas fa-users me-1"></i> Usuários</a>
-                <a href="produtos.php" class="btn btn-outline-light me-3"><i class="fas fa-box me-1"></i> Produtos</a>
-                <a href="#" onclick="confirmSair()" class="btn btn-danger"><i class="fas fa-sign-out-alt me-1"></i> Sair</a>
+            <div id="div-nav-links" class="d-flex align-items-center">
+                <a id="link-nav-painel" href="painel.php" class="btn btn-outline-light me-2"><i id="icone-nav-painel" class="fas fa-home me-1"></i> Painel</a>
+                <a id="link-nav-usuarios" href="usuarios.php" class="btn btn-outline-light me-2"><i id="icone-nav-usuarios" class="fas fa-users me-1"></i> Usuários</a>
+                <a id="link-nav-produtos" href="produtos.php" class="btn btn-outline-light me-3"><i id="icone-nav-produtos" class="fas fa-box me-1"></i> Produtos</a>
+                <a id="link-nav-sair" href="#" onclick="confirmSair()" class="btn btn-danger"><i id="icone-nav-sair" class="fas fa-sign-out-alt me-1"></i> Sair</a>
             </div>
         </div>
     </nav>
 
-    <div class="container my-5">
-        <div class="painel-admin-box">
-            <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
-                <h2 class="fw-bold m-0"><i class="fas fa-receipt text-info me-2"></i>Relatório Geral de Vendas</h2>
-                <a href="painel.php" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i> Voltar ao Painel</a>
+    <div id="div-container-principal" class="container my-5">
+        <div id="div-painel-admin" class="painel-admin-box">
+            <div id="div-cabecalho-vendas" class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+                <h2 id="h2-titulo-vendas" class="fw-bold m-0"><i id="icone-titulo-vendas" class="fas fa-receipt text-info me-2"></i>Relatório Geral de Vendas</h2>
+                <a id="link-voltar-painel" href="painel.php" class="btn btn-outline-secondary"><i id="icone-voltar-painel" class="fas fa-arrow-left me-1"></i> Voltar ao Painel</a>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-striped align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th>PEDIDO</th>
-                            <th>CLIENTE</th>
-                            <th>PRODUTO</th>
-                            <th>QUANTIDADE</th>
-                            <th>VALOR TOTAL</th>
-                            <th>DATA DA VENDA</th>
+            <div id="div-tabela-vendas" class="table-responsive">
+                <table id="tabela-vendas" class="table table-striped align-middle">
+                    <thead id="thead-vendas" class="table-light">
+                        <tr id="tr-cabecalho-vendas">
+                            <th id="th-pedido">PEDIDO</th>
+                            <th id="th-cliente">CLIENTE</th>
+                            <th id="th-produto">PRODUTO</th>
+                            <th id="th-qtd">QUANTIDADE</th>
+                            <th id="th-total">VALOR TOTAL</th>
+                            <th id="th-data">DATA DA VENDA</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody-vendas">
                         <?php
                             require_once('../controller/vendaController.php');
                             $venda = new Venda();
@@ -61,13 +61,13 @@
                                 $data = $linha['data_criado'];
 
                                 echo "
-                                <tr>
-                                    <td>#$id</td>
-                                    <td class='fw-semibold'>$usuario</td>
-                                    <td>$produto</td>
-                                    <td>$qtd</td>
-                                    <td class='fw-bold text-success'>R$ $total</td>
-                                    <td class='text-muted'>$data</td>
+                                <tr id='tr-venda-$id'>
+                                    <td id='td-id-venda-$id'>#$id</td>
+                                    <td id='td-cliente-venda-$id' class='fw-semibold'>$usuario</td>
+                                    <td id='td-produto-venda-$id'>$produto</td>
+                                    <td id='td-qtd-venda-$id'>$qtd</td>
+                                    <td id='td-total-venda-$id' class='fw-bold text-success'>R$ $total</td>
+                                    <td id='td-data-venda-$id' class='text-muted'>$data</td>
                                 </tr>
                                 ";
                             }

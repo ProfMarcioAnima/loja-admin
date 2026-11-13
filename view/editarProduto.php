@@ -16,29 +16,29 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <div class="container my-5">
-        <div class="painel-admin-box" style="max-width: 600px; margin: auto;">
-            <h2 class="fw-bold mb-4"><i class="fas fa-edit text-success me-2"></i>Editar Produto</h2>
-            <form method="post" action="../controller/produtoController.php?action=editarProduto">
-                <input type="hidden" name="meuid" value="<?php echo $produto->getId(); ?>">
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Nome do Produto</label>
-                    <input required type="text" name="nome" class="form-control" value="<?php echo $produto->getNome(); ?>">
+    <div id="div-container-principal" class="container my-5">
+        <div id="div-painel-admin" class="painel-admin-box" style="max-width: 600px; margin: auto;">
+            <h2 id="h2-titulo-edicao" class="fw-bold mb-4"><i id="icone-edicao" class="fas fa-edit text-success me-2"></i>Editar Produto</h2>
+            <form id="form-editar-produto" method="post" action="../controller/produtoController.php?action=editarProduto">
+                <input id="input-hidden-id" type="hidden" name="meuid" value="<?php echo $produto->getId(); ?>">
+                <div id="div-grupo-nome" class="mb-3">
+                    <label id="label-nome" class="form-label fw-semibold">Nome do Produto</label>
+                    <input id="input-nome" required type="text" name="nome" class="form-control" value="<?php echo $produto->getNome(); ?>">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Descrição</label>
-                    <textarea name="descricao" class="form-control" rows="3"><?php echo $produto->getDescricao(); ?></textarea>
+                <div id="div-grupo-descricao" class="mb-3">
+                    <label id="label-descricao" class="form-label fw-semibold">Descrição</label>
+                    <textarea id="textarea-descricao" name="descricao" class="form-control" rows="3"><?php echo $produto->getDescricao(); ?></textarea>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Preço (R$)</label>
-                    <input required type="number" step="0.01" name="preco" class="form-control" value="<?php echo $produto->getPreco(); ?>">
+                <div id="div-grupo-preco" class="mb-3">
+                    <label id="label-preco" class="form-label fw-semibold">Preço (R$)</label>
+                    <input id="input-preco" required type="number" step="0.01" name="preco" class="form-control" value="<?php echo $produto->getPreco(); ?>">
                 </div>
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">Link da Imagem (URL da Internet)</label>
+                <div id="div-grupo-imagem" class="mb-4">
+                    <label id="label-imagem" class="form-label fw-semibold">Link da Imagem (URL da Internet)</label>
                     <input type="url" id="url" name="imagem" class="form-control" value="<?php echo $produto->getImagem(); ?>" placeholder="https://exemplo.com/foto.jpg">
                 </div>
-                <div class="d-flex justify-content-between">
-                    <a href="produtos.php" class="btn btn-secondary">Voltar</a>
+                <div id="div-botoes-acao" class="d-flex justify-content-between">
+                    <a id="link-voltar" href="produtos.php" class="btn btn-secondary">Voltar</a>
                     <button type="submit" id="salvar" class="btn btn-success fw-semibold px-4">Salvar Alterações</button>
                 </div>
             </form>

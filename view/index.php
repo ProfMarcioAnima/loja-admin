@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <div class="container">
-        <div class="card card-login-admin bg-white">
-            <div class="bg-dark text-white text-center py-4">
-                <i class="fas fa-shield-alt fa-3x text-warning mb-2"></i>
-                <h4 class="mb-0 fw-bold">Painel Administrativo</h4>
+    <div id="div-container-principal" class="container">
+        <div id="div-card-login" class="card card-login-admin bg-white">
+            <div id="div-cabecalho-login" class="bg-dark text-white text-center py-4">
+                <i id="icone-escudo" class="fas fa-shield-alt fa-3x text-warning mb-2"></i>
+                <h4 id="h4-titulo-painel" class="mb-0 fw-bold">Painel Administrativo</h4>
             </div>
-            <div class="card-body p-4">
-                <form method="post" action="../controller/usuarioController.php?action=logar">
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-semibold">USUÁRIO ADMIN</label>
+            <div id="div-corpo-card" class="card-body p-4">
+                <form id="form-login-admin" method="post" action="../controller/usuarioController.php?action=logar">
+                    <div id="div-grupo-usuario" class="mb-3">
+                        <label id="label-usuario" class="form-label text-muted small fw-semibold">USUÁRIO ADMIN</label>
                         <input required type="text" name="usuario" id="usuario" class="form-control form-control-lg" placeholder="Usuário">
                     </div>
-                    <div class="mb-4">
-                        <label class="form-label text-muted small fw-semibold">SENHA</label>
+                    <div id="div-grupo-senha" class="mb-4">
+                        <label id="label-senha" class="form-label text-muted small fw-semibold">SENHA</label>
                         <input required type="password" name="senha" id="senha" class="form-control form-control-lg" placeholder="Senha">
                     </div>
                     <button type="submit" id="submit" class="btn btn-warning btn-lg w-100 fw-semibold">Entrar no Sistema</button>

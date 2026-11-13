@@ -13,41 +13,41 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-admin py-3 sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="painel.php">
-                <i class="fas fa-tools text-warning me-2"></i>ADMINISTRAÇÃO
+    <nav id="nav-painel" class="navbar navbar-expand-lg navbar-dark navbar-admin py-3 sticky-top">
+        <div id="div-nav-container" class="container">
+            <a id="link-brand-painel" class="navbar-brand fw-bold fs-4" href="painel.php">
+                <i id="icone-brand-painel" class="fas fa-tools text-warning me-2"></i>ADMINISTRAÇÃO
             </a>
-            <div class="d-flex align-items-center">
-                <a href="painel.php" class="btn btn-outline-light me-2"><i class="fas fa-home me-1"></i> Painel</a>
-                <a href="usuarios.php" class="btn btn-outline-light me-2"><i class="fas fa-users me-1"></i> Usuários</a>
-                <a href="vendas.php" class="btn btn-outline-info me-3"><i class="fas fa-receipt me-1"></i> Vendas</a>
-                <a href="#" id="sair" onclick="confirmSair()" class="btn btn-danger"><i class="fas fa-sign-out-alt me-1"></i> Sair</a>
+            <div id="div-nav-links" class="d-flex align-items-center">
+                <a id="link-nav-painel" href="painel.php" class="btn btn-outline-light me-2"><i id="icone-nav-painel" class="fas fa-home me-1"></i> Painel</a>
+                <a id="link-nav-usuarios" href="usuarios.php" class="btn btn-outline-light me-2"><i id="icone-nav-usuarios" class="fas fa-users me-1"></i> Usuários</a>
+                <a id="link-nav-vendas" href="vendas.php" class="btn btn-outline-info me-3"><i id="icone-nav-vendas" class="fas fa-receipt me-1"></i> Vendas</a>
+                <a href="#" id="sair" onclick="confirmSair()" class="btn btn-danger"><i id="icone-nav-sair" class="fas fa-sign-out-alt me-1"></i> Sair</a>
             </div>
         </div>
     </nav>
 
-    <div class="container my-5">
-        <div class="painel-admin-box">
-            <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
-                <h2 class="fw-bold m-0"><i class="fas fa-box text-success me-2"></i>Gerenciamento de Produtos</h2>
-                <a href="cadastrarProduto.php" class="btn btn-success fw-semibold"><i class="fas fa-plus me-1"></i> Novo Produto</a>
+    <div id="div-container-principal" class="container my-5">
+        <div id="div-painel-admin" class="painel-admin-box">
+            <div id="div-cabecalho-produtos" class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+                <h2 id="h2-titulo-produtos" class="fw-bold m-0"><i id="icone-titulo-produtos" class="fas fa-box text-success me-2"></i>Gerenciamento de Produtos</h2>
+                <a id="link-novo-produto" href="cadastrarProduto.php" class="btn btn-success fw-semibold"><i id="icone-novo-produto" class="fas fa-plus me-1"></i> Novo Produto</a>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th>FOTO</th>
-                            <th>ID</th>
-                            <th>NOME</th>
-                            <th>DESCRIÇÃO</th>
-                            <th>PREÇO</th>
-                            <th class="text-center">EDITAR</th>
-                            <th class="text-center">EXCLUIR</th>
+            <div id="div-tabela-produtos" class="table-responsive">
+                <table id="tabela-produtos" class="table table-hover align-middle">
+                    <thead id="thead-produtos" class="table-light">
+                        <tr id="tr-cabecalho-produtos">
+                            <th id="th-foto">FOTO</th>
+                            <th id="th-id">ID</th>
+                            <th id="th-nome">NOME</th>
+                            <th id="th-descricao">DESCRIÇÃO</th>
+                            <th id="th-preco">PREÇO</th>
+                            <th id="th-editar" class="text-center">EDITAR</th>
+                            <th id="th-excluir" class="text-center">EXCLUIR</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody-produtos">
                         <?php
                             require_once('../controller/produtoController.php');
                             $produto = new Produto();
@@ -60,20 +60,20 @@
                                 $preco = number_format($linha['preco'], 2, ',', '.');
                                 $imagem = $linha['imagem'];
                         ?>
-                        <tr>
-                            <td>
+                        <tr id="tr-produto-<?php echo $id; ?>">
+                            <td id="td-foto-<?php echo $id; ?>">
                                 <?php if (!empty($imagem)) { ?>
-                                    <img src="<?php echo htmlspecialchars($imagem); ?>" class="img-admin-preview" alt="Foto">
+                                    <img id="img-produto-<?php echo $id; ?>" src="<?php echo htmlspecialchars($imagem); ?>" class="img-admin-preview" alt="Foto">
                                 <?php } else { ?>
-                                    <span class="badge bg-secondary">Sem Foto</span>
+                                    <span id="span-sem-foto-<?php echo $id; ?>" class="badge bg-secondary">Sem Foto</span>
                                 <?php } ?>
                             </td>
-                            <td>#<?php echo $id; ?></td>
-                            <td class="fw-semibold"><?php echo $nome; ?></td>
-                            <td class="text-muted small"><?php echo $descricao; ?></td>
-                            <td class="fw-bold text-success">R$ <?php echo $preco; ?></td>
-                            <td class="text-center"><a id="produto<?php echo $id; ?>" class='btn btn-success btn-sm' href='editarProduto.php?id=<?php echo $id; ?>'><i class='fas fa-edit'></i></a></td>
-                            <td class="text-center"><a class='btn btn-danger btn-sm' onclick='confirmDelete(<?php echo $id; ?>)' href='#'><i class='fas fa-trash'></i></a></td>
+                            <td id="td-id-<?php echo $id; ?>">#<?php echo $id; ?></td>
+                            <td id="td-nome-<?php echo $id; ?>" class="fw-semibold"><?php echo $nome; ?></td>
+                            <td id="td-descricao-<?php echo $id; ?>" class="text-muted small"><?php echo $descricao; ?></td>
+                            <td id="td-preco-<?php echo $id; ?>" class="fw-bold text-success">R$ <?php echo $preco; ?></td>
+                            <td id="td-editar-<?php echo $id; ?>" class="text-center"><a id="produto<?php echo $id; ?>" class='btn btn-success btn-sm' href='editarProduto.php?id=<?php echo $id; ?>'><i id="icone-editar-<?php echo $id; ?>" class='fas fa-edit'></i></a></td>
+                            <td id="td-excluir-<?php echo $id; ?>" class="text-center"><a id="btn-excluir-<?php echo $id; ?>" class='btn btn-danger btn-sm' onclick='confirmDelete(<?php echo $id; ?>)' href='#'><i id="icone-excluir-<?php echo $id; ?>" class='fas fa-trash'></i></a></td>
                         </tr>
                         <?php } ?>
                     </tbody>
